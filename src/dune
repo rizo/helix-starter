@@ -1,0 +1,14 @@
+
+; Build main.bc.js
+(executable
+ (name main)
+ (libraries
+  signal
+  helix
+  helix.html
+  helix.stdweb
+  helix.jx.jsoo)
+ (modes js)
+ (js_of_ocaml
+  (flags --target-env=browser)
+  (build_runtime_flags --target-env=browser)))

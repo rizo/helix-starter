@@ -1,0 +1,35 @@
+opam-version: "2.0"
+maintainer: "Rizo I. <rizo@odis.io>"
+authors: "Rizo I. <rizo@odis.io>"
+homepage: "https://github.com/rizo/helix"
+bug-reports: "https://github.com/rizo/helix/issues"
+license: "ISC"
+synopsis: "Starter project for Helix"
+
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+
+depends: [
+  "ocaml"
+  "dune" {build}
+  "odoc" {with-doc}
+
+  "signal"
+  "helix"
+]
+
+pin-depends: [
+  ["helix.dev" "git+https://github.com/rizo/helix#32d8bf9b4607463276eff285e326c7272e318fe1"]
+]

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Helix Starter</title>
+  <link rel="stylesheet" href="./bundle.css" />
+</head>
+<body>
+  <div id="root"></div>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <script src="./bundle.js" type="text/javascript"></script>
+  <script>
+    new EventSource('/esbuild').addEventListener('change', () => location.reload())
+  </script>
+</body>
+</html>
+

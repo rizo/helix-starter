@@ -1,0 +1,15 @@
+.DS_Store
+_build
+_esy
+_opam
+_output
+.bsb.lock
+.merlin
+dune.mel
+.melange.eobjs
+node_modules
+.onix.env
+./result
+
+www/bundle.js
+www/bundle.css

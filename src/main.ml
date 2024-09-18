@@ -1,9 +1,10 @@
 open Helix
 
-module Style = struct
+module Css = struct
   let button =
     Html.class_list
       [
+        "w-full";
         "bg-transparent";
         "hover:bg-blue-500";
         "text-blue-700";
@@ -38,13 +39,17 @@ let counter () =
                 count;
             ]
             [ show (fun n -> span [] [ text (string_of_int n) ]) count ];
-          button
-            [ Style.button; on_click (fun () -> Signal.update (fun n -> n + 1) count) ]
-            [ text "+" ];
-          button
-            [ Style.button; on_click (fun () -> Signal.update (fun n -> n - 1) count) ]
-            [ text "-" ];
-          button [ Style.button; on_click (fun () -> Signal.emit 0 count) ] [ text "Reset" ];
+          div
+            [ class_list [ "flex"; "gap-x-2" ] ]
+            [
+              button
+                [ Css.button; on_click (fun () -> Signal.update (fun n -> n + 1) count) ]
+                [ text "+" ];
+              button
+                [ Css.button; on_click (fun () -> Signal.update (fun n -> n - 1) count) ]
+                [ text "-" ];
+            ];
+          button [ Css.button; on_click (fun () -> Signal.emit 0 count) ] [ text "Reset" ];
         ];
     ]
 

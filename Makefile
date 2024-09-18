@@ -1,8 +1,8 @@
-SRC := ./_build/default/src/main.bc.js
-BUNDLE := ./www/bundle.js
-CSS := ./www/bundle.css
-WWW := ./www
-PROFILE := dev
+ML_SRC := './src/[a-zA-Z0-9_]+.ml'
+JS_SRC := './_build/default/src/*.js'
+CSS_OUT := './www/main.css'
+WWW := './www'
+PROFILE := 'dev'
 
 .PHONY: build
 build:
@@ -18,25 +18,25 @@ bundle: build
 		--log-level=error \
 		--bundle \
 		--minify \
-		--outfile=$(BUNDLE) \
-		$(SRC)
+		--outdir=$(WWW) \
+		$(JS_SRC)
 
 .PHONY: bundle-watch
 bundle-watch:
-	npm x -- esbuild $(SRC) \
+	npm x -- esbuild $(JS_SRC) \
 		--log-level=error \
 		--bundle \
-		--outfile=$(BUNDLE) \
+		--outdir=$(WWW) \
 		--watch \
 		--servedir=$(WWW)
 
 tailwindcss:
 	npm x -- \
-		tailwindcss -o $(CSS) --content "./src/[a-zA-Z0-9_]+.ml"
+		tailwindcss -o $(CSS_OUT) --content $(ML_SRC)
 
 tailwindcss-watch:
 	npm x -- \
-		tailwindcss -o $(CSS) --content "./src/[a-zA-Z0-9_]+.ml" -w
+		tailwindcss -o $(CSS_OUT) --content $(ML_SRC) -w
 
 .PHONY: serve
 serve: build

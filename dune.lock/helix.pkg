@@ -1,0 +1,13 @@
+(version dev)
+
+(build
+ (run dune build -p %{pkg-self:name} -j %{jobs} @install))
+
+(depends ocaml dune signal js_of_ocaml-compiler)
+
+(source
+ (fetch
+  (url
+   git+https://github.com/rizo/helix#32d8bf9b4607463276eff285e326c7272e318fe1)))
+
+(dev)

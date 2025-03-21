@@ -53,3 +53,12 @@ dist:
 .PHONY: clean
 clean:
 	dune clean
+
+.PHONY: shell
+shell:
+	nix develop -f onix.nix -j auto -i -k TERM -k PATH -k HOME -v shell
+
+.PHONY: lock
+lock:
+	nix develop -f onix.nix lock
+

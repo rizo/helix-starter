@@ -56,7 +56,7 @@ clean:
 
 .PHONY: shell
 shell:
-	nix develop -f onix.nix -j auto -i -k TERM -k PATH -k HOME -v shell
+	nix develop -f onix.nix -j auto -i -k TERM -k PATH -k HOME -v shell --extra-experimental-features nix-command
 
 .PHONY: lock
 lock:

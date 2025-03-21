@@ -485,14 +485,27 @@
        ]
      },
      "ocaml": {
-       "version": "5.2.0",
+       "version": "5.2.1",
        "depends": [
-         "ocaml-config",
-         "ocaml-system"
+         "ocaml-base-compiler",
+         "ocaml-config"
        ],
        "build-depends": [
-         "ocaml-system"
+         "ocaml-base-compiler"
        ]
+     },
+     "ocaml-base-compiler": {
+       "version": "5.2.1",
+       "src": {
+         "url": "https://github.com/ocaml/ocaml/releases/download/5.2.1/ocaml-5.2.1.tar.gz",
+         "sha256": "2d0f8090951a97a2c0e5b8a11e90096c0e1791d2e471e4a67f87e3b974044cd0"
+       },
+       "src-extra": {
+         "ocaml-base-compiler.install": {
+           "url": "https://raw.githubusercontent.com/ocaml/opam-source-archives/main/patches/ocaml-base-compiler/ocaml-base-compiler.install",
+           "sha256": "79f2a1a5044a91350a0eb6ce12e261a72a2855c094c425cddf3860e58c486678"
+         }
+       }
      },
      "ocaml-compiler-libs": {
        "version": "v0.17.0",
@@ -521,10 +534,10 @@
          }
        },
        "depends": [
-         "ocaml-system"
+         "ocaml-base-compiler"
        ],
        "build-depends": [
-         "ocaml-system"
+         "ocaml-base-compiler"
        ]
      },
      "ocaml-lsp-server": {
@@ -563,17 +576,8 @@
          "dune"
        ]
      },
-     "ocaml-system": {
-       "version": "5.2.0",
-       "src-extra": {
-         "gen_ocaml_config.ml.in": {
-           "url": "https://raw.githubusercontent.com/ocaml/opam-source-archives/main/patches/ocaml-system/gen_ocaml_config.ml.in",
-           "sha256": "71bcd3d35e28cbf71eda81991c8741268f4b87ced71573b2e75f64f136cebfc1"
-         }
-       },
-       "depexts": [
-         "ocaml-ng.ocamlPackages_5_2.ocaml"
-       ]
+     "ocaml-options-vanilla": {
+       "version": "1"
      },
      "ocaml-version": {
        "version": "3.7.3",
